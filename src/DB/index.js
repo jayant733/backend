@@ -15,3 +15,8 @@ const connectDB = async() => {
 
 
 export default connectDB // default lagana zaroori ha i
+
+
+
+//asynchronous code jabhi complete hota hai toh actualyy mai woh aapko ek promise return karke deta hai 
+// this is a common thing in profeesion data base 

@@ -19,11 +19,15 @@ dotenv.config({
 }) // ye kaam hogya 
 
 connectDB() // this was method 2 jaha pe ek nayi database file banake usko fir import kara liya 
-
-
-
-
-
+// here promise will be returned so .then and .catch will be there 
+.then(()=>{ // here mongodb is connected but listening nhi hua hai abhi 
+    app.listen(process.env.PORT || 8000 , () =>{
+    console.log(`server is running at PORT ${process.env.PORT}`)
+    }) //SERVER ME PRODUCTION ME CODE CRASH HONE SE BACHAYEGA YE PROCESS.ENV.PORT
+})
+.catch((error) => {
+    console.log("mongodb connection failed !!! ", error)
+})
 
 
 
@@ -72,3 +76,9 @@ THIS WAS THE FIRST APPROACH OF THE WORK
     }
 
 })()  //function banake directly execute method in javascript // callback function bana diya */
+
+//REQUEST .PARAMS :- url se jo bhi data aata hai woh request .paramse se aata hai 
+
+//request. body 
+//cors :- cross origin resource sharing is also a hard thing to handle in backend 
+//middle ware handling is mostly done by app.use 
